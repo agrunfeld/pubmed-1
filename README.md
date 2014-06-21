@@ -1,2 +1,2 @@
-pubmed
+Pubmed
 ======
