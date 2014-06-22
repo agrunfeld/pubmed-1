@@ -30,7 +30,7 @@ error_reporting(0);
 // -----------------------------------------------------------------------------
 // -- Fetch data for papers published between 1813 and 2013
 // -----------------------------------------------------------------------------
-for($year = 2010; $year <= 2013; $year++)
+for($year = 1913; $year <= 2013; $year++)
 {
 	echo "\n" . $year;
 	//
@@ -61,7 +61,6 @@ for($year = 2010; $year <= 2013; $year++)
 		}
 		else
 		{
-
 			// -- Query Pubmed: search for all publications during $year
 			$query     	= new Pubmed();
 			$result 	= $query->esearch(Array(
@@ -96,6 +95,7 @@ for($year = 2010; $year <= 2013; $year++)
 				break;
 
 			sleep(0.5);
+			echo "-";
 
 			// -- Query Pubmed: fetch paper information using IDs obtained earlier
 			$articleAbstracts = $query->efetch( Array(
