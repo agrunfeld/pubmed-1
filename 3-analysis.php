@@ -2,11 +2,11 @@
 
 include "data.php";
 
-// -- For each year, largest number of authors seen on a paper
+// -- For each year, largest number of authors seen on a paper -----------------
 #foreach($data as $year => $nbAuthors)
 #	echo $year . "\t" . max( array_keys($nbAuthors) ) . "\n";
 
-// -- For each year, find papers published by >1k authors!
+// -- For each year, find papers published by >1k authors! ---------------------
 #foreach($data as $year => $nbAuthors)
 #{
 #	echo "\n" . $year . "\n";
@@ -20,13 +20,24 @@ include "data.php";
 #		}
 #	}
 #	echo $sum;
-#	// echo $year . "\n";
-#	// echo $data[$year][max(array_keys($nbAuthors))] . "\n\n";
 #}
-#exit;
 
+// -- Make authorship distribution ---------------------------------------------
+#for($i = 1; $i < 50; $i++)
+#{
+#	echo $i;
+#	foreach($data as $year => $nbAuthors)
+#	{
+#		echo "\t";
+#		if(array_key_exists($i, $nbAuthors))
+#			echo $nbAuthors[$i];
+#		else
+#			echo 0;
+#	}
+#	echo "\n";
+#}
 
-// -- For each year, get mean/median number of authors per paper
+// -- For each year, get mean/median number of authors per paper ---------------
 echo "Year\tMean\tMedian\tMax\t#IndivPapers\tTotPapers\n";
 foreach($data as $year => $nbAuthors)
 {
