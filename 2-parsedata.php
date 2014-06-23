@@ -33,9 +33,9 @@ for($year = 1913; $year <= 2013; $year++)
 			// 
 			$publicationJournal = (string) $currentAbstract->MedlineCitation->Article->Journal->Title;
 
-			// Only keep track of journal articles
-			if(strcasecmp($publicationType, 'Journal Article') != 0)
-				continue;
+			// Only keep track of journal articles (not other types of articles)
+			// if(strcasecmp($publicationType, 'Journal Article') != 0)
+			// 	continue;
 
 			// Filter out articles that aren't published in journal of interest
 			if($filterByJournal != '' && strcasecmp($publicationJournal, $filterByJournal) != 0)
