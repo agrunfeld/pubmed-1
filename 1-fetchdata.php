@@ -8,27 +8,8 @@ ini_set('memory_limit', '-1');
 include "lib.pubmed.php";
 error_reporting(0);
 
-// //
-// $year 		= 1913;
-// $retMax 	= 10;
-// $retStart 	= 0;
-
-// //
-// $query     	= new Pubmed();
-// $result 	= $query->esearch(Array(
-// 	'term'		=> $year . '[pdat]',	// $journal . '[journal] AND ' .
-// 	'retmax'	=> $retMax,				// Max fields to return is 100k
-// 	'retstart'	=> $retStart)
-// );
-
-// print_r($result);
-// //$query->query('', $method = 'GET', $body = '', $returnJSON = false);
-// exit;
-
-
-
 // -----------------------------------------------------------------------------
-// -- Fetch data for papers published between 1813 and 2013
+// -- Fetch data for papers published between 1913 and 2013
 // -----------------------------------------------------------------------------
 for($year = 1913; $year <= 2013; $year++)
 {
@@ -106,20 +87,11 @@ for($year = 1913; $year <= 2013; $year++)
 
 			file_put_contents( $fileDir, $articleAbstracts );
 			echo ".";
-			//$articleAbstracts = simplexml_load_string($articleAbstracts);
 			sleep(0.5);
 		}
 
-		// 
-		// foreach($articleAbstracts as $currentAbstract)
-		// {
-		// 	@$nbAuthors[ count($currentAbstract->MedlineCitation->Article->AuthorList->Author) ]++;
-		// }
-		// ksort($nbAuthors);
 	}
 	echo $i . "\n";
-
-	// print_r($nbAuthors);
 }
 
 
