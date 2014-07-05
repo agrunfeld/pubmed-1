@@ -9,7 +9,7 @@ include "lib.pubmed.php";
 error_reporting(0);
 
 // Only return results from a specific journal
-$filterByJournal = ''; //$filterByJournal='The New England journal of medicine';
+$filterByJournal = ''; // e.g. 'The New England journal of medicine'
 
 // -----------------------------------------------------------------------------
 // -- Parse all XML files for each year & keep track of authorship distribution
@@ -30,17 +30,16 @@ for($year = 1913; $year <= 2013; $year++)
 			// For a complete list of Pubmed publication types,
 			// refer to http://www.nlm.nih.gov/mesh/pubtypes2006.html
 			$publicationType    = (string) $currentAbstract->MedlineCitation->Article->PublicationTypeList->PublicationType;
-			// 
 			$publicationJournal = (string) $currentAbstract->MedlineCitation->Article->Journal->Title;
-
-			// Only keep track of journal articles (not other types of articles)
-			// if(strcasecmp($publicationType, 'Journal Article') != 0)
-			// 	continue;
 
 			// Filter out articles that aren't published in journal of interest
 			if($filterByJournal != '' && strcasecmp($publicationJournal, $filterByJournal) != 0)
 				continue;			
 
+			//// OPTIONAL FILTERING:
+			//// Only keep track of journal articles (not other types of articles)
+			// if(strcasecmp($publicationType, 'Journal Article') != 0)
+			// 	continue;
 			//// Only keep track of retractions
 			// if(strcasecmp($publicationType, 'Retracted Publication') != 0)
 			// 	continue;
