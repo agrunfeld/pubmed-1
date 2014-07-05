@@ -1,7 +1,7 @@
 Pubmed API
 =========
 
-This API grew out of my analysis of scientific authorship over the last century, published here.
+This API grew out of my analysis of scientific authorship over the last century, published [here](https://thewinnower.com/papers/the-rising-trend-in-authorship).
 
 ### Sample Code
 
